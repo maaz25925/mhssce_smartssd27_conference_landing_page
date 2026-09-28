@@ -1151,7 +1151,7 @@ $mainWebsiteUrl = 'https://mhssconfrece.vercel.app/';
                 href="<?= htmlspecialchars($mainWebsiteUrl, ENT_QUOTES, 'UTF-8') ?>"
                 target="_blank"
                 rel="noopener">
-                Visit Main Website
+                Visit IEEE Conference Website
             </a>
 
         </nav>
@@ -1192,7 +1192,7 @@ $mainWebsiteUrl = 'https://mhssconfrece.vercel.app/';
                             href="<?= htmlspecialchars($mainWebsiteUrl, ENT_QUOTES, 'UTF-8') ?>"
                             target="_blank"
                             rel="noopener">
-                            Visit Main Website
+                            Visit IEEE Conference Website
                             <span>→</span>
                         </a>
 
@@ -1583,7 +1583,7 @@ $mainWebsiteUrl = 'https://mhssconfrece.vercel.app/';
                     href="<?= htmlspecialchars($mainWebsiteUrl, ENT_QUOTES, 'UTF-8') ?>"
                     target="_blank"
                     rel="noopener">
-                    Visit Main Website
+                    Visit IEEE Conference Website
                     <span>↗</span>
                 </a>
 
