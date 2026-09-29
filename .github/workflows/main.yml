@@ -1,0 +1,64 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Get the repository
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      # 2. Install PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+
+      # 3. Execute PHP and generate index.html
+      - name: Generate index.html
+        run: php index.php > index.html
+
+      # 4. Commit the generated index.html back to main
+      - name: Commit generated HTML
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add index.html
+
+          if git diff --cached --quiet; then
+            echo "No changes to index.html"
+          else
+            git commit -m "chore: generate index.html"
+            git push
+          fi
+
+      # 5. Configure GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 6. Package the generated static site
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "."
+
+      # 7. Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push'
+        id: deployment
+        uses: actions/deploy-pages@v4
