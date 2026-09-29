@@ -16,23 +16,23 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      # 1. Get the repository
       - name: Checkout Code
         uses: actions/checkout@v6
 
-      # 2. Install PHP
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.2"
 
-      # 3. Execute PHP and generate index.html
       - name: Generate index.html
         run: php index.php > index.html
 
-      # 4. Commit the generated index.html back to main
-      - name: Commit generated HTML
+      - name: Commit generated index.html
         if: github.event_name == 'push'
         run: |
           git config user.name "github-actions[bot]"
@@ -47,17 +47,14 @@ jobs:
             git push
           fi
 
-      # 5. Configure GitHub Pages
-      - name: Setup Pages
+      - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      # 6. Package the generated static site
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: "."
 
-      # 7. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push'
         id: deployment
