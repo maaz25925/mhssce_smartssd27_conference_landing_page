@@ -1,7 +1,7 @@
 <?php
 // AI SmartSSD 2027 landing page
 // Change this URL when the new conference website is deployed.
-$mainWebsiteUrl = 'https://mhssconfrece.vercel.app/';
+$mainWebsiteUrl = 'https://mhssce-ssd-27-conference.vercel.app/';
 ?>
 
 <!DOCTYPE html>
@@ -1151,7 +1151,7 @@ $mainWebsiteUrl = 'https://mhssconfrece.vercel.app/';
                 href="<?= htmlspecialchars($mainWebsiteUrl, ENT_QUOTES, 'UTF-8') ?>"
                 target="_blank"
                 rel="noopener">
-                Visit IEEE Conference Website
+                Visit Upcoming IEEE Conference Website
             </a>
 
         </nav>
@@ -1192,7 +1192,7 @@ $mainWebsiteUrl = 'https://mhssconfrece.vercel.app/';
                             href="<?= htmlspecialchars($mainWebsiteUrl, ENT_QUOTES, 'UTF-8') ?>"
                             target="_blank"
                             rel="noopener">
-                            Visit IEEE Conference Website
+                            Visit Upcoming IEEE Conference Website
                             <span>→</span>
                         </a>
 
@@ -1583,7 +1583,7 @@ $mainWebsiteUrl = 'https://mhssconfrece.vercel.app/';
                     href="<?= htmlspecialchars($mainWebsiteUrl, ENT_QUOTES, 'UTF-8') ?>"
                     target="_blank"
                     rel="noopener">
-                    Visit IEEE Conference Website
+                    Visit Upcoming IEEE Conference Website
                     <span>↗</span>
                 </a>
 
